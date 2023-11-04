@@ -35,7 +35,11 @@ function App() {
 
               {/* Right Section: Form Fields, Button, and Heading */}
               <div className="bg-black  py-5 bg-opacity-75 p-4 rounded-lg shadow-lg">
-                <h2 className="text-xl text-white font-semibold">Buy Token</h2>
+                <div className="flex flex-row justify-center items-center">
+                  <h2 className="text-xl text-white text-center font-semibold">
+                    Buy Token
+                  </h2>
+                </div>
                 <div className="flex flex-row justify-between">
                   <h3 className="text-white">Listing Price</h3>
                   <h3 className="flex flex-row gap-3 items-center justify-center">

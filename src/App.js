@@ -95,25 +95,25 @@ function App() {
                 </div>
 
                 {/* Right Section: Form Fields, Button, and Heading */}
-                <div className="bg-black  py-5 bg-opacity-75 p-4 rounded-lg shadow-lg">
+                <div className="bg-black border  w-[400px] py-5 bg-opacity-[0.3] p-4 rounded-lg shadow-lg">
                   <div className="flex flex-row justify-center items-center">
-                    <h2 className="text-xl text-white text-center font-semibold">
+                    <h2 className="text-xl text-white text-center font-semibold font-sdf">
                       Buy Emach Token
                     </h2>
                   </div>
-                  <div className="flex flex-row justify-between">
-                    <h3 className="text-white">Listing Price</h3>
+                  <div className="flex flex-row mt-6 justify-between">
+                    <h3 className="text-white ">Listing Price</h3>
                     <h3 className="flex flex-row gap-3 items-center justify-center">
                       {" "}
                       <img width="10" height="10" src={active} />
-                      <span class="text-darkText text-white dark:text-white text-base md:text-lg">
+                      <span class="text-darkText text-white  text-sm ">
                         1 Token = {rate}ETH
                       </span>
                     </h3>
                   </div>
 
-                  <div class="w-full  mt-4 rounded-full h-6">
-                    <p className="p-tag">Sale is Live</p>
+                  <div class="w-full  mt-4 text-white rounded-full h-6">
+                    <p className="p-tag ">Sale is Live</p>
                   </div>
                   {/* <div>
                     <h2 className="font-bold mt-2 mb-3 text-white ">
@@ -122,18 +122,17 @@ function App() {
                   </div> */}
 
                   <form>
-                    <div class="flex items-center justify-center max-w-full mx-auto">
-                      <div class="flex items-center gap-x-3 w-full">
-                        <div className="flex flex-row justify-center items-center">
+                    <div class="flex items-center justify-center py-3 max-w-full mx-auto">
+                      <div class="flex  flex-col  gap-x-3 w-full">
+                        <div className="flex flex-col ">
                           <label className=" text-white">
-                            <span class="font-bold text-white">Tokens </span>
-                            Amount to Buy:
+                            Tokens Amount to Buy
                           </label>
                         </div>
-                        <div class="flex flex-1 w-full bg-white dark:bg-[#2f32417f] rounded-full justify-between items-center p-0.5 pr-1.5 border border-skin-pink dark:border-[#ffffff26]">
+                        <div class="flex flex-1 w-full mt-2  rounded justify-between items-center p-0.5 pr-1.5 border-b border-skin-pink dark:border-[#ffffff26]">
                           <input
                             type="number"
-                            class="bg-transparent flex-1 w-auto text-center z-20 block border-0 focus:outline-none text-darkText dark:text-white appearance-none"
+                            class="bg-transparent flex-1 w-auto text-center z-20 block border-b-[#AB3610]  focus:outline-none text-darkText dark:text-white appearance-none"
                             placeholder="0"
                             min={0}
                             onChange={(e) => {

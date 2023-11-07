@@ -52,3 +52,7 @@
   font-weight: 700;
   /* line-height: 1.102em; */
 }
+
+.font-sdf {
+  font-family: "Cabin", Sans-serif;
+}

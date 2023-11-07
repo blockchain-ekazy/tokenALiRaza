@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.elementor-heading-title {
+  color: #fff;
+  font-family: "Cabin", Sans-serif;
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.102em;
+}
+
+.elementor-element {
+  color: #fff;
+  font-family: "Cabin", Sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  /* line-height: 1.102em; */
+}

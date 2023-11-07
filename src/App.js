@@ -1,8 +1,64 @@
 import logo from "./logo.svg";
+import React, { useState, useContext, useEffect } from "react";
+import { Web3Context } from "./web3Context";
 import "./App.css";
 import active from "./active.png";
 import metamasklogo from "./MetaMask_Fox.svg.png";
+import { ethers } from "ethers";
 function App() {
+  const {
+    isConnectedd,
+    web3,
+    connectedAddress,
+    connectToMetaMask,
+    signer,
+    Network,
+  } = useContext(Web3Context);
+  const [TokenQuantity, setTokenQuantity] = useState("");
+  const [rate, setrate] = useState("");
+
+  const handleConnect = async () => {
+    if (isConnectedd === false) {
+      await connectToMetaMask();
+    }
+  };
+
+  async function fetchrate() {
+    try {
+      const ct = new ethers.Contract(
+        process.env.REACT_APP_CONTRACT_ADDRESS,
+        process.env.REACT_APP_ABI,
+        signer
+      );
+      const tx = await ct.rate();
+      setrate(parseFloat(parseInt(tx._hex) / 1e18));
+      console.log("Transaction receipt:", parseInt(tx._hex));
+    } catch (error) {
+      alert(error.code);
+    }
+  }
+
+  useEffect(() => {
+    fetchrate();
+  }, [connectedAddress]);
+
+  async function BuyToken(e) {
+    e.preventDefault();
+    try {
+      const ct = new ethers.Contract(
+        process.env.REACT_APP_CONTRACT_ADDRESS,
+        process.env.REACT_APP_ABI,
+        signer
+      );
+      const tx = await ct.buyToken(TokenQuantity, {
+        value: ethers.utils.parseEther((rate * TokenQuantity).toString()),
+        gasLimit: 3000000,
+      });
+      console.log("Transaction receipt:", tx);
+    } catch (error) {
+      alert(error.code);
+    }
+  }
   return (
     <>
       <div className="bg-black">
@@ -19,11 +75,21 @@ function App() {
                     principles of strength, resilience, and the promise of
                     limitless possibilities.
                   </p>
-                  <button className="bg-white ml-2 mt-10 hover:bg-[#AB3610] hover:text-white   text-black font-semibold   w-[200px] flex flex-row justify-center items-center gap-3 rounded-full px-4 py-2">
+                  <button
+                    onClick={handleConnect}
+                    className="bg-white ml-2 mt-10 hover:bg-[#AB3610] hover:text-white   text-black font-semibold   w-[200px] flex flex-row justify-center items-center gap-3 rounded-full px-4 py-2"
+                  >
                     <span>
                       <img width={40} height={40} src={metamasklogo} />
                     </span>{" "}
-                    Connect Wallet
+                    {connectedAddress
+                      ? `${connectedAddress.slice(
+                          0,
+                          4
+                        )}...${connectedAddress.slice(
+                          connectedAddress.length - 4
+                        )}`
+                      : "Connect Wallet"}
                   </button>
                 </div>
 
@@ -50,7 +116,7 @@ function App() {
                   </div>
                   <div>
                     <h2 className="font-bold mt-2 mb-3 text-white ">
-                      1 Token = 0.003ETH
+                      1 Token = {rate}ETH
                     </h2>
                   </div>
 
@@ -68,13 +134,19 @@ function App() {
                             type="number"
                             class="bg-transparent flex-1 w-auto text-center z-20 block border-0 focus:outline-none text-darkText dark:text-white appearance-none"
                             placeholder="0"
-                            readonly
+                            min={0}
+                            onChange={(e) => {
+                              setTokenQuantity(e.target.value);
+                            }}
                           />
                         </div>
                       </div>
                     </div>
                     <div className="flex flex-row justify-center items-center">
-                      <button className="bg-green-500 hover:bg-[#ffd500] text-white w-1/2 rounded-full px-4 py-2 mt-4">
+                      <button
+                        onClick={BuyToken}
+                        className="bg-green-500 hover:bg-[#ffd500] text-white w-1/2 rounded-full px-4 py-2 mt-4"
+                      >
                         Buy Tokens
                       </button>
                     </div>

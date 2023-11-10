@@ -107,7 +107,7 @@ function App() {
                       {" "}
                       <img width="10" height="10" src={active} />
                       <span class="text-darkText text-white  text-sm ">
-                        1 Token = {rate}ETH
+                        1 Token = {rate}MATIC
                       </span>
                     </h3>
                   </div>

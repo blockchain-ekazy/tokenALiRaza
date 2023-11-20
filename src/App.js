@@ -189,11 +189,7 @@ function App() {
                   </div>{" "}
                 </span>
                 <h3 className="font-semibold text-lg">Cantidad de Tokens</h3>
-                <p>
-                  {" "}
-                  Cantidad de Tokens Ingresa la cantidad de tokens que deseas
-                  comprar.
-                </p>
+                <p> Ingresa la cantidad de tokens que deseas comprar.</p>
               </div>
               <div className="text-center rounded-md  px-4 py-8 flex flex-col gap-2">
                 <span class="mas-addons-feature-icon icon-type-icon mb-[30px]">
@@ -202,11 +198,7 @@ function App() {
                   </div>
                 </span>{" "}
                 <h3 className="font-semibold text-lg">Compra ahora</h3>
-                <p>
-                  {" "}
-                  Compra ahora Click en comprar ahora para adquirir tus Tokens
-                  Emach.
-                </p>
+                <p> Click en comprar ahora para adquirir tus Tokens Emach.</p>
               </div>
             </div>
           </div>
@@ -233,25 +225,34 @@ function App() {
 
               <div class=" px-[30px]">
                 <div className="">
-                  <h2 class="elementor-element">Cómo funciona??​</h2>
+                  <h2 class="elementor-element">Cómo funciona?​</h2>
                 </div>
                 <p class="  mt-5 text-white ">
-                  Al darte de alta en nuestra plataforma podrás organizar{" "}
-                  <br></br>tus pedidos de maquinaria ligera o pesada, también
-                  <br></br>
-                  encontrarás otros servicios de manera eficiente.
+                  Al integrar perfectamente la tecnología blockchain, Emach
+                  pretende revolucionar la forma en que se realizan las
+                  transacciones y los servicios dentro de este dominio. Como
+                  participante en el espacio criptográfico, ahora es el momento
+                  oportuno para profundizar en las complejidades de Emach Token,
+                  aprovechar la oportunidad para aprender más y participar
+                  activamente en esta floreciente iniciativa blockchain que
+                  promete transformar el panorama de la construcción.<br></br>{" "}
+                  <span className="my-4">
+                    Para más información visita https://www.emach.mx
+                  </span>{" "}
+                  <br></br> Nuestro Token Emach será abastecido de manera
+                  regular con un porcentaje de ganancia del servicio mencionado.
                 </p>{" "}
               </div>
             </div>
           </div>
         </div>
 
-        <div class="bg-white flex justify-between">
-          <img className="w-1/4" src={sidel} alt="" />
-          <div className="flex text-black text-center items-center flex-col justify-between my-16">
+        <div class="bg-[#F2F2F2] flex justify-between">
+          <img className="mt-40" src={sidel} alt="" />
+          <div className="flex -mt-52 text-black text-center items-center flex-col justify-center">
             <h1 class="text-4xl  font-semibold">Token Emach</h1>
-            <img className="w-1/4" src={token} alt="" />
-            <p class="font-semibold">Flujo Emach</p>
+            <img className="mb-8" src={token} alt="" />
+            <p class="font-black text-xl my-8">Flujo Emach</p>
             <p>
               {" "}
               La fortaleza sistemática del Token Emach será abastecida por el
@@ -259,7 +260,7 @@ function App() {
               nuestros usuarios de las apps.
             </p>
           </div>
-          <img className="w-1/4" src={sider} alt="" />
+          <img className="mt-40" src={sider} alt="" />
         </div>
 
         <footer class="bg-black pt-34">
@@ -294,9 +295,6 @@ function App() {
                     <li>
                       <a class="hover:underline">Juegos</a>
                     </li>
-                    <li>
-                      <a class="hover:underline">Juegos</a>
-                    </li>
                   </ul>
                 </div>
                 <div>
@@ -323,20 +321,12 @@ function App() {
                     Contacto
                   </h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="">
-                      <a
-                        href="https://github.com/themesberg/flowbite"
-                        class="hover:underline "
-                      >
-                        +52 xxxxxxxx
-                      </a>
-                    </li>
                     <li>
                       <a
                         href="https://discord.gg/4eeurUVvTy"
                         class="hover:underline"
                       >
-                        info@emach.mx
+                        token@emach.mx
                       </a>
                     </li>
                   </ul>

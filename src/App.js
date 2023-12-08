@@ -24,7 +24,7 @@ function App() {
     Network,
   } = useContext(Web3Context);
   const [TokenQuantity, setTokenQuantity] = useState("");
-  const [rate, setrate] = useState("");
+  const [rate, setrate] = useState(0);
 
   const handleConnect = async () => {
     if (isConnectedd === false) {
@@ -40,12 +40,11 @@ function App() {
         signer
       );
       const tx = await ct.rate();
-      console.log(tx);
+      setrate(tx);
 
-      setrate(parseFloat(parseInt(tx) / 1e18));
       console.log("Transaction receipt:", parseInt(tx._hex));
     } catch (error) {
-      // alert(error.code);
+      console.log(error);
     }
   }
 
@@ -55,6 +54,7 @@ function App() {
 
   async function BuyToken(e) {
     e.preventDefault();
+
     try {
       const ct = new ethers.Contract(
         process.env.REACT_APP_CONTRACT_ADDRESS,
@@ -62,12 +62,13 @@ function App() {
         signer
       );
       const tx = await ct.buyToken(TokenQuantity, {
-        value: ethers.utils.parseEther((rate * TokenQuantity).toString()),
+        value: rate * TokenQuantity,
         gasLimit: 3000000,
       });
       console.log("Transaction receipt:", tx);
     } catch (error) {
       alert(error.code);
+      console.log(error);
     }
   }
   return (
@@ -118,7 +119,8 @@ function App() {
                       {" "}
                       <img width="30" height="30" src={frame} />
                       <span className="text-darkText text-white  text-sm ">
-                        1 Token = {rate}MATIC
+                        1 Token = {ethers.utils.formatUnits(rate, "ether")}{" "}
+                        MATIC
                       </span>
                     </h3>
                   </div>

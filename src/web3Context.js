@@ -20,6 +20,12 @@ export const Web3Provider = ({ children }) => {
         setSigner(provider.getSigner());
         setWeb3(web3);
         const metaMaskAccount = await provider.send("eth_requestAccounts", []);
+
+        await window.ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: "0x13881" }],
+        });
+
         setIsConnectedd(true);
         let splitedMetaMaskAddress;
         if (metaMaskAccount) {

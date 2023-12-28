@@ -55,13 +55,21 @@ function App() {
   async function BuyToken(e) {
     e.preventDefault();
 
+    await window.ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x13881" }],
+    });
+
     try {
       const ct = new ethers.Contract(
         process.env.REACT_APP_CONTRACT_ADDRESS,
         process.env.REACT_APP_ABI,
         signer
       );
-      const tx = await ct.buyToken(TokenQuantity, {
+
+      console.log(TokenQuantity);
+
+      const tx = await ct.buyToken(String(TokenQuantity * 1e18), {
         value: rate * TokenQuantity,
         gasLimit: 3000000,
       });
